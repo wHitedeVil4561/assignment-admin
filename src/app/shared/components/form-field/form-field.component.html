@@ -1,0 +1,12 @@
+<div class="flex flex-column gap-1">
+  <ng-content></ng-content>
+  @if (errorHintDirective.ngControl.control?.errors &&
+  errorHintDirective.ngControl.touched) {
+  <div class="text-red text-md">
+    {{
+      errorHintDirective.ngControl.control?.errors
+        | errorHint : errorHintDirective : errorHintDirective.ngControl.touched
+    }}
+  </div>
+  }
+</div>

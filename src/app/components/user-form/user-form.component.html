@@ -4,40 +4,51 @@
   </div>
   <div class="flex flex-column gap-2">
     <label for="name">User's name</label>
-    <mat-form-field>
-      <input
-        id="name"
-        matInput
-        formControlName="name"
-        placeholder="Enter name"
-        class="filter-input"
-        type="text"
-      />
-    </mat-form-field>
+    <app-form-field>
+      <mat-form-field>
+        <input
+          appErrorHint
+          id="name"
+          matInput
+          formControlName="name"
+          placeholder="Enter name"
+          class="filter-input"
+          type="text"
+        />
+      </mat-form-field>
+    </app-form-field>
+    
   </div>
 
   <div class="flex flex-column gap-2">
     <label for="email">User's email</label>
-    <mat-form-field>
-      <input
-        id="email"
-        matInput
-        formControlName="email"
-        placeholder="Enter email"
-        class="filter-input"
-        type="text"
-      />
-    </mat-form-field>
+    <app-form-field>
+      <mat-form-field>
+        <input
+          appErrorHint
+          id="email"
+          matInput
+          formControlName="email"
+          placeholder="Enter email"
+          class="filter-input"
+          type="text"
+        />
+      </mat-form-field>
+    </app-form-field>
+    
   </div>
   <div class="flex flex-column gap-2">
     <label for="role">User's role</label>
-    <mat-form-field id="role">
-      <mat-select placeholder="Select role" formControlName="role">
-        @for (role of roleList; track role) {
-        <mat-option [value]="role.id">{{ role.name }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+    <app-form-field>
+      <mat-form-field id="role">
+        <mat-select appErrorHint placeholder="Select role" formControlName="role">
+          @for (role of roleList; track role) {
+          <mat-option [value]="role.id">{{ role.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </app-form-field>
+    
   </div>
 
   <div class="flex gap-4 w-full mt-4">

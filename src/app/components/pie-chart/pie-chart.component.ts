@@ -46,7 +46,6 @@ export class PieChartComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngAfterViewInit(): void {
     if(!this.isSignalApproach()){
-      debugger
       this.retrieveUsersByRole();
     }
   }
@@ -86,7 +85,6 @@ export class PieChartComponent implements OnInit, AfterViewInit, OnDestroy {
   retrieveUsersByRole() {
     this.userService.fetchUsersByRole().subscribe({
       next: (res: UserByCategoryI) => {
-        debugger
         const { admin, editor, viewer } = res;
         this.initialisePieChart([admin, editor, viewer]);
       },

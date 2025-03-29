@@ -1,0 +1,66 @@
+<div class="flex flex-column gap-4">
+  <form
+    class="flex justify-between items-center gap-4"
+    [formGroup]="filterForm"
+  >
+    <h4 class="m-0 text-xl fw-500">Users</h4>
+    <div class="flex flex-wrap gap-4 items-center">
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="search"
+          placeholder="Search"
+          class="filter-input"
+          type="text"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Select role" formControlName="role" multiple>
+          @for (role of roleList; track role) {
+          <mat-option [value]="role.id">{{ role.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="rounded-4 user-table-wrapper overflow-x-auto common-box-shadow">
+    <table class="user-table w-full overflow-x-auto">
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th class="text-left">User ID</th>
+          <th class="text-left">User Name</th>
+          <th class="text-left">User Email</th>
+          <th>Role</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of isSignalApproach()? userStore.data():userList; track user)
+        {
+        <tr>
+          <td class="text-center">{{ $index + 1 }}</td>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td class="text-center">{{ user.role | titlecase }}</td>
+          
+        </tr>
+        } @empty {
+        <tr>
+          <td class="text-center" colspan="6">No user found</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <mat-paginator
+      [pageIndex]="isSignalApproach()? (userStore.filter().page ?? 1)- 1:pageIndex"
+      (page)="onPageChange($event)"
+      [length]="isSignalApproach()? userStore.count():total"
+      [pageSize]="5"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+</div>

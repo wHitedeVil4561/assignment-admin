@@ -1,0 +1,35 @@
+.user-table-wrapper{
+    width: 100%;
+    max-width: 100%;
+    .user-table{
+        border-collapse: collapse;
+        th{
+            font-weight: 500;
+            padding:  1rem;
+            background: var(--primary-color-100);
+        }
+        td{
+            
+            padding:  1rem;
+            border-bottom: 1px solid var(--primary-color-100);
+        }
+        // tr{
+        //     &:last-of-type{
+        //         td{
+        //             border-bottom: none !important;
+        //         }
+        //     }
+        // }
+    }
+}
+::ng-deep {
+    .mat-mdc-text-field-wrapper{
+        height: 48px !important;
+    }
+    .mdc-text-field--outlined .mat-mdc-form-field-infix,
+    .mdc-text-field--no-label .mat-mdc-form-field-infix {
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+    }
+  }
+  

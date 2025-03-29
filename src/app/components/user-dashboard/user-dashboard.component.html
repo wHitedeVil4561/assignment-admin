@@ -1,0 +1,9 @@
+<div class="flex justify-end mb-4">
+  <button (click)="onAddUser()" class="primary-btn">Add User</button>
+</div>
+<div class="grid grid-dashboard-layout items-start gap-4">
+  <div class="col-span-3 flex flex-column gap-4">
+    <app-user-table [isSignalApproach]="isSignalApproach"></app-user-table>
+  </div>
+  <app-pie-chart [isSignalApproach]="isSignalApproach"></app-pie-chart>
+</div>

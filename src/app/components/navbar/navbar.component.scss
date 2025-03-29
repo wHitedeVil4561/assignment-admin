@@ -1,0 +1,13 @@
+.navbar-wrapper{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.router-link{
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    &.active{
+        background-color: var(--blue);
+        color: var(--white);
+    }
+}
